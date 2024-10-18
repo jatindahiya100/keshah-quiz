@@ -95,7 +95,7 @@ const Quiz = () => {
             transition={{ duration: 0.3 }}
         >
             <Screen
-                data={quizData[currentIndex]}
+                data={quizData[quizData.length-1]}
                 onNext={handleNext}
                 onPrevious={handlePrevious} // Pass down the previous handler
                 onInputChange={handleInputChange}

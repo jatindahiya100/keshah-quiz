@@ -67,8 +67,7 @@ const Screen = ({ data, onNext, onPrevious, onInputChange, answers }) => {
                         {renderInput(q)}
                     </div>
                 ));
-            }
-            
+            }      
             return null;
         });
     };
