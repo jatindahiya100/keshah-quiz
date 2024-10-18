@@ -89,7 +89,7 @@ const Screen = ({ data, onNext, onPrevious, onInputChange, answers }) => {
                                     transition={{ ease: "easeInOut", duration: 1, delay }}>
                                     <input
                                         type={question.inputType}
-                                        name={question.id}
+                                        name={`option-${optionIndex}-${question.id}`}
                                         id={`option-${optionIndex}-${question.id}`}
                                         value={option}
                                         onChange={() => onInputChange(option, question.id)}
