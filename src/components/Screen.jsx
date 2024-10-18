@@ -45,7 +45,7 @@ const Screen = ({ data, onNext, onPrevious, onInputChange, answers }) => {
                     />
                 );
             }
-            if (item.question && item.question.length) {
+            if (item && item.question && Array.isArray(item.question) && item.question.length) {
                 return item.question.map((q, index) => (
                     <div key={q.id} className="mb-6">
                         <motion.p
@@ -68,6 +68,7 @@ const Screen = ({ data, onNext, onPrevious, onInputChange, answers }) => {
                     </div>
                 ));
             }
+            
             return null;
         });
     };
