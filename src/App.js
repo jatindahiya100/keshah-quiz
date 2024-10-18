@@ -7,15 +7,15 @@ import Header from './components/Header';
 
 export default function App() {
   return (
-    <Router basename="/">
+    <Router basename="/keshah-quiz">
       <ScrollToTop />
-      <Header/>
+      <Header />
       <Routes>
-        {/* Define routes */}
         <Route path="/" element={<QuizPage />} />
         {/* Add more routes as needed */}
       </Routes>
     </Router>
+
   )
 }
 
