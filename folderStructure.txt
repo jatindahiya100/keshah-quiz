@@ -1,0 +1,16 @@
+my-react-app/
+├── public/
+│   └── index.html
+├── src/
+│   ├── assets/
+│   │   ├── css/
+│   │   └── fonts/
+│   ├── pages/
+│   ├── components/
+│   ├── App.js
+│   ├── index.js
+│   └── ScrollToTop.js
+├── .gitignore
+├── package.json
+├── package-lock.json
+└── README.md
