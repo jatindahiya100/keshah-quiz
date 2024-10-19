@@ -162,7 +162,7 @@ const Screen = ({ data, onNext, onPrevious, onInputChange, answers }) => {
                 animate={{ opacity: 1 }}
                 transition={{ ease: "easeInOut", duration: 1, delay: data.content.length * 0.4 + 1 }} // Adjust based on content length
                 onClick={onNext}
-                className="bg-white text-black cursor-pointer flex h-12 w-40 items-center justify-center rounded-full text-base font-semibold transition ease-out hover:ring-2 hover:ring-neutral-900 hover:ring-offset-2  dark:text-black dark:hover:ring-white dark:hover:ring-offset-black lg:text-base">
+                className="bg-white text-black cursor-pointer flex h-12 w-40 items-center justify-center rounded-full text-base font-semibold lg:text-base">
                 <span className="tracking-tight bg-transparent">Next</span>
                 <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" className="ml-2 bg-transparent">
                     <path d="M6.1584 3.13508C6.35985 2.94621 6.67627 2.95642 6.86514 3.15788L10.6151 7.15788C10.7954 7.3502 10.7954 7.64949 10.6151 7.84182L6.86514 11.8418C6.67627 12.0433 6.35985 12.0535 6.1584 11.8646C5.95694 11.6757 5.94673 11.3593 6.1356 11.1579L9.565 7.49985L6.1356 3.84182C5.94673 3.64036 5.95694 3.32394 6.1584 3.13508Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd" />
