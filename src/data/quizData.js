@@ -208,7 +208,7 @@ const quizData = [
                         id: 'q10', // Unique ID for question 
                         question: 'Finding the right solution can be difficult; some people end up feeling like they’ve tried everything. What options have you tried?',
                         options: ['Finasteride', 'Minoxidil', 'PRP', 'Stem cells', 'Hair Transplant', 'Massages', 'Red Light Therapy', 'Shampoos', 'Oils', 'I haven’t tried anything'],
-                        inputType: 'radio', // Radio input type
+                        inputType: 'checkbox', // checkbox input type
                     },
                 ],
             },
