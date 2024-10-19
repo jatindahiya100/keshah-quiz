@@ -104,10 +104,10 @@ const Quiz = () => {
         return (
             <motion.div
                 key="quiz-completed" // Unique key for transition
-                initial={{ opacity: 0, scale: 0.9 }} // Initial state
-                animate={{ opacity: 1, scale: 1 }} // Animate in
-                exit={{ opacity: 0, scale: 0.9 }} // Animate out
-                transition={{ duration: 0.3 }} // Transition settings
+                initial={{ opacity: 0}} // Initial state
+                animate={{ opacity: 1 }} // Animate in
+                exit={{ opacity: 0 }} // Animate out
+                transition={{ duration: 1 }} // Transition settings
             >
                 <QuizCompleted onPrevious={handlePrevious} />
             </motion.div>

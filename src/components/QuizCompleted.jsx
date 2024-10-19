@@ -13,6 +13,9 @@ import finalScreenPhotoGrid07 from '../assets/media/Daily Routine/finalScreenPho
 import finalScreenPhotoGrid08 from '../assets/media/Daily Routine/finalScreenPhotoGrid08.png';
 import finalScreenPhotoGrid09 from '../assets/media/Daily Routine/finalScreenPhotoGrid09.png';
 import finalScreenPhotoGrid10 from '../assets/media/Daily Routine/finalScreenPhotoGrid10.png';
+import Screen3Gifs from '../assets/media/Screen3.GIF';
+import Screen5Photo from '../assets/media/Screen5Photo.png';
+import Screen6Gifs from '../assets/media/Screen6.GIF';
 
 
 // Load Stripe with your publishable key
@@ -30,6 +33,51 @@ const images = [
     finalScreenPhotoGrid09,
     finalScreenPhotoGrid10,
 ];
+
+const Review = ({ imageSrc, customerName, reviewText }) => (
+    <div className="w-64 rounded shrink-0 flex flex-col">
+        <img src={imageSrc} alt={`${customerName}'s review`} className="object-contain w-auto h-[350px]" />
+        <label className="p-2 text-center font-normal text-white">{customerName}</label>
+        <p className="p-2 text-center text-white font-light">{reviewText}</p>
+    </div>
+);
+
+const ReviewsSection = () => {
+    // Example reviews data
+    const reviews = [
+        {
+            imageSrc: Screen3Gifs,
+            customerName: 'Ankur',
+            reviewText: '“I went from no hair on the top to all this. My favorite exercise is the scalp pinching.“',
+        },
+        {
+            imageSrc: Screen6Gifs,
+            customerName: 'Michael',
+            reviewText: '“Hair has grown a lot and I see baby hairs. Proud to be a part of the KESHAH Family.“',
+        },
+        {
+            imageSrc: finalScreenPhotoGrid03,
+            customerName: 'Collin',
+            reviewText: '“Hair on the sides and the top has regrown, scalp health has increased. This actually worked for me.” ',
+        },
+        // Add more reviews as needed
+    ];
+
+    return (
+        <div className='w-full overflow-x-auto hide-scrollbar'>
+            <div className='flex gap-4'>
+                {reviews.map((review, index) => (
+                    <Review
+                        key={index}
+                        imageSrc={review.imageSrc}
+                        customerName={review.customerName}
+                        reviewText={review.reviewText}
+                    />
+                ))}
+            </div>
+        </div>
+    );
+};
 
 export default function QuizCompleted({ onPrevious }) {
     return (
@@ -110,6 +158,7 @@ export default function QuizCompleted({ onPrevious }) {
                 </p>
                 <p className='text-white font-light text-sm leading-loose tracking-wide bg-transparent text-justify'>Enjoy extra peace of mind. You can claim a full refund within 30 days if you’ve completed at least 80% of the sessions and still feel KESHAH isn’t right for you. </p>
             </div>
+            <ReviewsSection />
         </div>
     );
 }
