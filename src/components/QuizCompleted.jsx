@@ -31,14 +31,16 @@ const images = [
     finalScreenPhotoGrid10,
 ];
 
-export default function QuizCompleted() {
+export default function QuizCompleted({ onPrevious }) {
     return (
         <div className='max-w-md mx-auto p-6 rounded-3xl flex flex-col gap-6 min-h-[600px] relative mt-6'>
             <motion.div className='w-full h-fit flex items-center justify-between'
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ ease: "easeInOut", duration: 0.4 }}>
-                <div></div>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-5 text-white cursor-pointer" onClick={onPrevious}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
+                </svg>
                 <img src="https://keshah.com/wp-content/uploads/2024/09/KESHAHWhiteLogoPNG-2.png" className="w-[120px]" alt="Keshah Logo" />
                 <div></div>
             </motion.div>

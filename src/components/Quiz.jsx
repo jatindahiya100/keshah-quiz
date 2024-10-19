@@ -7,7 +7,7 @@ import QuizCompleted from './QuizCompleted';
 const Quiz = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [answers, setAnswers] = useState({});
-    const [quizCompleted, setQuizCompleted] = useState(false);
+    const [quizCompleted, setQuizCompleted] = useState(true);
     const [isExiting, setIsExiting] = useState(false);
 
     const handleNext = useCallback(() => {
@@ -23,7 +23,16 @@ const Quiz = () => {
     }, [currentIndex]);
 
     const handlePrevious = () => {
-        if (currentIndex > 0) {
+        if (quizCompleted) {
+            // If quiz is completed, go back to the last quiz question
+            setIsExiting(true);
+            setTimeout(() => {
+                setCurrentIndex(quizData.length - 1); // Reset to last quiz question
+                setQuizCompleted(false); // Mark quiz as not completed
+                setIsExiting(false);
+            }, 300);
+        } else if (currentIndex > 0) {
+            // Normal behavior to go to the previous question
             setIsExiting(true);
             setTimeout(() => {
                 setCurrentIndex((prevIndex) => prevIndex - 1);
@@ -33,38 +42,28 @@ const Quiz = () => {
     };
 
     const handleInputChange = (value, questionId) => {
-        // Check if currentIndex is within bounds of quizData
         if (currentIndex >= 0 && currentIndex < quizData.length) {
-            // Access the current quiz item
             const currentQuiz = quizData[currentIndex];
 
-            // Ensure currentQuiz has content and that it's an array
             if (currentQuiz.content && Array.isArray(currentQuiz.content)) {
-                // Find the question in the content
                 const questionObj = currentQuiz.content.find(item => item.question);
 
-                // Check if questionObj is found and has question property
                 if (questionObj && questionObj.question && Array.isArray(questionObj.question)) {
                     const questionArray = questionObj.question;
-
-                    // Loop through questions to find the one matching the questionId
                     const question = questionArray.find(q => q.id === questionId);
 
                     if (question) {
                         const inputType = question.inputType;
 
-                        // Handle checkbox input type
                         if (inputType === 'checkbox') {
                             setAnswers((prevAnswers) => {
                                 const currentAnswers = prevAnswers[questionId] || [];
                                 if (currentAnswers.includes(value)) {
-                                    // If value is already present, remove it
                                     return {
                                         ...prevAnswers,
                                         [questionId]: currentAnswers.filter(answer => answer !== value),
                                     };
                                 } else {
-                                    // If value is not present, add it
                                     return {
                                         ...prevAnswers,
                                         [questionId]: [...currentAnswers, value],
@@ -72,7 +71,6 @@ const Quiz = () => {
                                 }
                             });
                         } else if (inputType === 'radio') {
-                            // Handle radio input type
                             setAnswers((prevAnswers) => ({
                                 ...prevAnswers,
                                 [questionId]: value,
@@ -104,7 +102,15 @@ const Quiz = () => {
 
     if (quizCompleted) {
         return (
-            <QuizCompleted />
+            <motion.div
+                key="quiz-completed" // Unique key for transition
+                initial={{ opacity: 0, scale: 0.9 }} // Initial state
+                animate={{ opacity: 1, scale: 1 }} // Animate in
+                exit={{ opacity: 0, scale: 0.9 }} // Animate out
+                transition={{ duration: 0.3 }} // Transition settings
+            >
+                <QuizCompleted onPrevious={handlePrevious} />
+            </motion.div>
         );
     }
 
@@ -119,7 +125,7 @@ const Quiz = () => {
             <Screen
                 data={quizData[currentIndex]}
                 onNext={handleNext}
-                onPrevious={handlePrevious} // Pass down the previous handler
+                onPrevious={handlePrevious}
                 onInputChange={handleInputChange}
                 answers={answers}
             />
