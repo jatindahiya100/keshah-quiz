@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/keshah-quiz/static/css/main.97d37e51.css",
-    "main.js": "/keshah-quiz/static/js/main.d09a0f32.js",
+    "main.css": "/keshah-quiz/static/css/main.84904500.css",
+    "main.js": "/keshah-quiz/static/js/main.5fa5b1ee.js",
     "static/media/Screen3.GIF": "/keshah-quiz/static/media/Screen3.0ad85ed3b7683a08f701.GIF",
     "static/media/Screen6.GIF": "/keshah-quiz/static/media/Screen6.4bd2cfd0eeaabc383350.GIF",
     "static/media/Screen5Photo.png": "/keshah-quiz/static/media/Screen5Photo.1a75a00835a68d86b016.png",
     "index.html": "/keshah-quiz/index.html",
-    "main.97d37e51.css.map": "/keshah-quiz/static/css/main.97d37e51.css.map",
-    "main.d09a0f32.js.map": "/keshah-quiz/static/js/main.d09a0f32.js.map"
+    "main.84904500.css.map": "/keshah-quiz/static/css/main.84904500.css.map",
+    "main.5fa5b1ee.js.map": "/keshah-quiz/static/js/main.5fa5b1ee.js.map"
   },
   "entrypoints": [
-    "static/css/main.97d37e51.css",
-    "static/js/main.d09a0f32.js"
+    "static/css/main.84904500.css",
+    "static/js/main.5fa5b1ee.js"
   ]
 }
