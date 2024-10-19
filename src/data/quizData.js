@@ -331,22 +331,34 @@ const quizData = [
     {
         type: 'quiz', // Indicates this is a quiz item
         content: [
-            { h1: 'Weekly surveys' },
-            { p: 'Help us continuously optimize your treatment through our data modeling.' },
+            { h1: 'Personalized treatment' },
+            { p: 'Weekly surveys help us continuously optimize your treatment so you can see the best results based on your hair type.' },
             {
                 question: [
                     {
                         id: 'q13', // Unique ID for question 
-                        question: 'How much time can you commit to hair regrowth daily.',
+                        question: 'I have noticed a reduction in hair fall.',
                         options: ['Yes', 'No'],
                         inputType: 'radio', // Radio input type
                     },
                     {
                         id: 'q14', // Unique ID for question 
-                        question: 'How much time can you commit to hair regrowth daily.',
+                        question: 'My hair fall has stopped.',
                         options: ['Yes', 'No'],
                         inputType: 'radio', // Radio input type
                     },
+                    {
+                        id: 'q15', // Unique ID for question 
+                        question: 'My hair feels thicker and stronger.',
+                        options: ['Yes', 'No'],
+                        inputType: 'radio', // Radio input type
+                    },
+                    {
+                        id: 'q16', // Unique ID for question 
+                        question: 'I have noticed signs of hair regrowth',
+                        options: ['Yes', 'No'],
+                        inputType: 'radio', // Radio input type
+                    }
                 ],
             },
 

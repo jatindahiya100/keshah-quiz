@@ -77,7 +77,7 @@ const Screen = ({ data, onNext, onPrevious, onInputChange, answers }) => {
             case 'radio':
             case 'checkbox':
                 return (
-                    <div className={`grid gap-6 ${question.options.length > 2 ? 'grid-cols-1' : 'grid-cols-1'}`}>
+                    <div className={`grid gap-6 ${question.options.length > 2 ? 'grid-cols-1' : 'grid-cols-2'}`}>
                         {question.options.map((option, optionIndex) => {
                             const delay = optionIndex * 0.4;
                             return (
