@@ -2,11 +2,12 @@ import React, { useState, useEffect, useCallback } from 'react';
 import Screen from './Screen';
 import quizData from '../data/quizData';
 import { motion } from 'framer-motion';
+import QuizCompleted from './QuizCompleted';
 
 const Quiz = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [answers, setAnswers] = useState({});
-    const [quizCompleted, setQuizCompleted] = useState(false);
+    const [quizCompleted, setQuizCompleted] = useState(true);
     const [isExiting, setIsExiting] = useState(false);
 
     const handleNext = useCallback(() => {
@@ -103,33 +104,9 @@ const Quiz = () => {
 
     if (quizCompleted) {
         return (
-            <div className="mt-12 max-w-md mx-auto border p-8 rounded-3xl text-white">
-                <h2 className="text-3xl mb-4">Quiz Completed!</h2>
-                <div>
-                    {Object.entries(answers).map(([questionId, answer]) => {
-                        // Extract the question based on the questionId
-                        const question = quizData
-                            .flatMap(q => q.content)
-                            .flatMap(item => item.question || []) // Flatten the question arrays
-                            .find(q => q.id === questionId); // Find the specific question
-    
-                        // Check if the question is found
-                        if (!question) {
-                            console.error("Question not found for the provided questionId:", questionId);
-                            return null; // Skip rendering if not found
-                        }
-    
-                        return (
-                            <div key={questionId}>
-                                <p className="font-bold">{question.question}</p>
-                                <p>Your answer: {Array.isArray(answer) ? answer.join(', ') : answer}</p>
-                            </div>
-                        );
-                    })}
-                </div>
-            </div>
+            <QuizCompleted />
         );
-    }    
+    }
 
     return (
         <motion.div
