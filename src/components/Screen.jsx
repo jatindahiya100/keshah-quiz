@@ -140,7 +140,7 @@ const Screen = ({ data, onNext, onPrevious, onInputChange, answers }) => {
     };
 
     return (
-        <div className='max-w-md mx-auto p-6 rounded-3xl flex flex-col items-center justify-between min-h-[600px] relative'>
+        <div className='max-w-md mx-auto p-6 rounded-3xl flex flex-col items-center justify-between min-h-[600px] relative mt-6'>
             <div>
                 <motion.div className='w-full h-fit flex items-center justify-between'
                     initial={{ opacity: 0 }}
