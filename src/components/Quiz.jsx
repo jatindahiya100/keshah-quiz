@@ -32,28 +32,62 @@ const Quiz = () => {
     };
 
     const handleInputChange = (value, questionId) => {
-        const currentQuestionId = questionId;
+        // Check if currentIndex is within bounds of quizData
+        if (currentIndex >= 0 && currentIndex < quizData.length) {
+            // Access the current quiz item
+            const currentQuiz = quizData[currentIndex];
 
-        if (quizData[currentIndex].content[0].question[0].inputType === 'checkbox') {
-            setAnswers((prevAnswers) => {
-                const currentAnswers = prevAnswers[currentQuestionId] || [];
-                if (currentAnswers.includes(value)) {
-                    return {
-                        ...prevAnswers,
-                        [currentQuestionId]: currentAnswers.filter(answer => answer !== value),
-                    };
+            // Ensure currentQuiz has content and that it's an array
+            if (currentQuiz.content && Array.isArray(currentQuiz.content)) {
+                // Find the question in the content
+                const questionObj = currentQuiz.content.find(item => item.question);
+
+                // Check if questionObj is found and has question property
+                if (questionObj && questionObj.question && Array.isArray(questionObj.question)) {
+                    const questionArray = questionObj.question;
+
+                    // Loop through questions to find the one matching the questionId
+                    const question = questionArray.find(q => q.id === questionId);
+
+                    if (question) {
+                        const inputType = question.inputType;
+
+                        // Handle checkbox input type
+                        if (inputType === 'checkbox') {
+                            setAnswers((prevAnswers) => {
+                                const currentAnswers = prevAnswers[questionId] || [];
+                                if (currentAnswers.includes(value)) {
+                                    // If value is already present, remove it
+                                    return {
+                                        ...prevAnswers,
+                                        [questionId]: currentAnswers.filter(answer => answer !== value),
+                                    };
+                                } else {
+                                    // If value is not present, add it
+                                    return {
+                                        ...prevAnswers,
+                                        [questionId]: [...currentAnswers, value],
+                                    };
+                                }
+                            });
+                        } else if (inputType === 'radio') {
+                            // Handle radio input type
+                            setAnswers((prevAnswers) => ({
+                                ...prevAnswers,
+                                [questionId]: value,
+                            }));
+                        }
+                    } else {
+                        console.error("Question not found for the provided questionId:", questionId);
+                    }
                 } else {
-                    return {
-                        ...prevAnswers,
-                        [currentQuestionId]: [...currentAnswers, value],
-                    };
+                    console.error("No questions found in current quiz item:", currentQuiz);
                 }
-            });
+            } else {
+                console.error("Current quiz item has invalid content structure:", currentQuiz);
+            }
         } else {
-            setAnswers((prevAnswers) => ({
-                ...prevAnswers,
-                [currentQuestionId]: value,
-            }));
+            console.error("Current index is out of bounds:", currentIndex);
         }
     };
 
@@ -73,10 +107,21 @@ const Quiz = () => {
                 <h2 className="text-3xl mb-4">Quiz Completed!</h2>
                 <div>
                     {Object.entries(answers).map(([questionId, answer]) => {
-                        const question = quizData.flatMap(q => q.content).find(q => q.question && q.question[0].id === questionId);
+                        // Extract the question based on the questionId
+                        const question = quizData
+                            .flatMap(q => q.content)
+                            .flatMap(item => item.question || []) // Flatten the question arrays
+                            .find(q => q.id === questionId); // Find the specific question
+    
+                        // Check if the question is found
+                        if (!question) {
+                            console.error("Question not found for the provided questionId:", questionId);
+                            return null; // Skip rendering if not found
+                        }
+    
                         return (
                             <div key={questionId}>
-                                <p className="font-bold">{question.question[0].question}</p>
+                                <p className="font-bold">{question.question}</p>
                                 <p>Your answer: {Array.isArray(answer) ? answer.join(', ') : answer}</p>
                             </div>
                         );
@@ -84,7 +129,7 @@ const Quiz = () => {
                 </div>
             </div>
         );
-    }
+    }    
 
     return (
         <motion.div
