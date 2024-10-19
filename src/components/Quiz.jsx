@@ -7,7 +7,7 @@ import QuizCompleted from './QuizCompleted';
 const Quiz = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [answers, setAnswers] = useState({});
-    const [quizCompleted, setQuizCompleted] = useState(false);
+    const [quizCompleted, setQuizCompleted] = useState(true);
     const [isExiting, setIsExiting] = useState(false);
 
     const handleNext = useCallback(() => {
