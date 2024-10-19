@@ -67,7 +67,7 @@ const Screen = ({ data, onNext, onPrevious, onInputChange, answers }) => {
                         {renderInput(q)}
                     </div>
                 ));
-            }      
+            }
             return null;
         });
     };
@@ -141,16 +141,21 @@ const Screen = ({ data, onNext, onPrevious, onInputChange, answers }) => {
 
     return (
         <div className='max-w-md mx-auto p-6 rounded-3xl flex flex-col items-center justify-between min-h-[600px] relative'>
-            <motion.div className='absolute top-6 left-6 cursor-pointer' initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ ease: "easeInOut", duration: 0.4 }}
-                onClick={onPrevious}>
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-5 text-white">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
-                </svg>
-            </motion.div>
-            <div className='w-full mt-12'>
-                {renderContent()} {/* Render content dynamically */}
+            <div>
+                <motion.div className='w-full h-fit flex items-center justify-between'
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ ease: "easeInOut", duration: 0.4 }}>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-5 text-white cursor-pointer" onClick={onPrevious}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
+                    </svg>
+                    <img src="https://keshah.com/wp-content/uploads/2024/09/KESHAHWhiteLogoPNG-2.png" className="w-[120px]" alt="Keshah Logo" />
+                    <div></div>
+                </motion.div>
+
+                <div className='w-full mt-8'>
+                    {renderContent()} {/* Render content dynamically */}
+                </div>
             </div>
             <motion.button
                 initial={{ opacity: 0 }}
