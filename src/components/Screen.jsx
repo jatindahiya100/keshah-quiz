@@ -140,8 +140,8 @@ const Screen = ({ data, onNext, onPrevious, onInputChange, answers }) => {
     };
 
     return (
-        <div className='max-w-md mx-auto p-8 rounded-3xl flex flex-col items-center justify-between min-h-[600px] relative'>
-            <motion.div className='absolute top-8 left-8 cursor-pointer' initial={{ opacity: 0 }}
+        <div className='max-w-md mx-auto p-6 border rounded-3xl flex flex-col items-center justify-between min-h-[600px] relative'>
+            <motion.div className='absolute top-6 left-6 cursor-pointer' initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ ease: "easeInOut", duration: 0.4 }}
                 onClick={onPrevious}>
