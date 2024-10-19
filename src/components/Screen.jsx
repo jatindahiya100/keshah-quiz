@@ -38,7 +38,7 @@ const Screen = ({ data, onNext, onPrevious, onInputChange, answers }) => {
                         key={index}
                         src={item.img}
                         alt=""
-                        className="mb-6 w-full max-h-[360px] object-contain rounded-xl"
+                        className="mb-6 w-full max-h-[370px] object-contain rounded-xl"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ ease: "easeInOut", duration: 1, delay }}
