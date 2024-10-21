@@ -92,7 +92,7 @@ export default function StripeCheckoutForm() {
                 {loading ? 'Processing...' : 'Pay $29.99'}
             </button>
 
-            {paymentError && <div className='text-red bg-transparent text-center text-sm'>{paymentError}</div>}
+            {paymentError && <div className='text-red-600 bg-transparent text-center text-sm'>{paymentError}</div>}
             {paymentSuccess && <div className='text-[#369033] bg-transparent text-center text-sm'>{paymentSuccess}</div>}
         </form>
     );
