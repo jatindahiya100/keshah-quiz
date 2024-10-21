@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-const Screen = ({ data, onNext, onPrevious, onInputChange, answers }) => {
+const Screen = ({ data, onNext, onPrevious, onInputChange, answers, progress }) => {
     const renderContent = () => {
         return data.content.map((item, index) => {
             const delay = index * 0.4;
@@ -142,7 +142,18 @@ const Screen = ({ data, onNext, onPrevious, onInputChange, answers }) => {
     return (
         <div className='max-w-md mx-auto p-6 rounded-3xl flex flex-col items-center justify-between min-h-[600px] relative mt-6'>
             <div>
-                <motion.div className='w-full h-fit flex items-center justify-between'
+                {/* Progress Bar */}
+                <div className="relative w-full h-[2px] bg-gray-200 rounded-full overflow-hidden">
+                    <motion.div
+                        className="absolute top-0 left-0 h-full bg-blue-500 rounded-full"
+                        style={{ width: `${progress}%` }}
+                        initial={{ width: 0 }}
+                        animate={{ width: `${progress}%` }}
+                        transition={{ ease: 'easeInOut', duration: 0.5 }}
+                    />
+                </div>
+
+                <motion.div className='mt-8 w-full h-fit flex items-center justify-between'
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ ease: "easeInOut", duration: 0.4 }}>

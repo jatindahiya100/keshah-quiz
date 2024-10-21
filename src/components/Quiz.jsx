@@ -114,6 +114,9 @@ const Quiz = () => {
         );
     }
 
+    // Calculate progress percentage
+    const progress = ((currentIndex + 1) / quizData.length) * 100;
+
     return (
         <motion.div
             key={currentIndex}
@@ -128,6 +131,7 @@ const Quiz = () => {
                 onPrevious={handlePrevious}
                 onInputChange={handleInputChange}
                 answers={answers}
+                progress={progress}
             />
         </motion.div>
     );
