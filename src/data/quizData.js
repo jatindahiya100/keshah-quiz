@@ -1,6 +1,7 @@
 import Screen3Gifs from '../assets/media/Screen3.GIF';
 import Screen5Photo from '../assets/media/Screen5Photo.png';
 import Screen6Gifs from '../assets/media/Screen6.GIF';
+import Screen23 from '../assets/media/Screen23.png';
 
 const quizData = [
     {
@@ -275,8 +276,8 @@ const quizData = [
     {
         type: 'info',
         content: [
-            { h1: 'Mechanotherapy™.' },
-            { p: 'KESHAH Mechanotherapy™ targets scalp tension using very specific massaging and stretching techniques, and inflammation using our natural oils composed of Indian and Japanese ingredients.' },
+            { h1: 'Target the root cause' },
+            { p: 'KESHAH Mechanotherapy™ targets scalp tension using very specific massaging and stretching techniques, and inflammation using our natural oils composed of Indian and Japanese ingredients. ' },
             { p: 'Reverse your hair loss from home—no pills, no transplants needed.' }
         ],
         duration: 15000, // Display for 10 seconds
@@ -287,6 +288,7 @@ const quizData = [
         content: [
             { h1: 'Follow along each day' },
             { p: 'Open your KESHAH App each day and follow along our step-by-step video Mechanotherapy™ guides created by KESHAH Hair Experts.' },
+            {img: Screen23}
         ],
         duration: 15000, // Display for 10 seconds
 
@@ -333,35 +335,6 @@ const quizData = [
         content: [
             { h1: 'Personalized treatment' },
             { p: 'Weekly surveys help us continuously optimize your treatment so you can see the best results based on your hair type.' },
-            {
-                question: [
-                    {
-                        id: 'q13', // Unique ID for question 
-                        question: 'I have noticed a reduction in hair fall.',
-                        options: ['Yes', 'No'],
-                        inputType: 'radio', // Radio input type
-                    },
-                    {
-                        id: 'q14', // Unique ID for question 
-                        question: 'My hair fall has stopped.',
-                        options: ['Yes', 'No'],
-                        inputType: 'radio', // Radio input type
-                    },
-                    {
-                        id: 'q15', // Unique ID for question 
-                        question: 'My hair feels thicker and stronger.',
-                        options: ['Yes', 'No'],
-                        inputType: 'radio', // Radio input type
-                    },
-                    {
-                        id: 'q16', // Unique ID for question 
-                        question: 'I have noticed signs of hair regrowth',
-                        options: ['Yes', 'No'],
-                        inputType: 'radio', // Radio input type
-                    }
-                ],
-            },
-
         ],
     },
 ];

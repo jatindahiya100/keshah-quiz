@@ -14,7 +14,6 @@ import finalScreenPhotoGrid08 from '../assets/media/Daily Routine/finalScreenPho
 import finalScreenPhotoGrid09 from '../assets/media/Daily Routine/finalScreenPhotoGrid09.png';
 import finalScreenPhotoGrid10 from '../assets/media/Daily Routine/finalScreenPhotoGrid10.png';
 import Screen3Gifs from '../assets/media/Screen3.GIF';
-import Screen5Photo from '../assets/media/Screen5Photo.png';
 import Screen6Gifs from '../assets/media/Screen6.GIF';
 
 
@@ -89,7 +88,7 @@ export default function QuizCompleted({ onPrevious }) {
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-5 text-white cursor-pointer" onClick={onPrevious}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
                 </svg>
-                <img src="https://keshah.com/wp-content/uploads/2024/09/KESHAHWhiteLogoPNG-2.png" className="w-[120px]" alt="Keshah Logo" />
+                <img src="https://keshah.com/wp-content/uploads/2024/09/KESHAHWhiteLogoPNG-2.png" className="w-[80px]" alt="Keshah Logo" />
                 <div></div>
             </motion.div>
             <h1 className='text-white font-light text-4xl'>
@@ -131,9 +130,10 @@ export default function QuizCompleted({ onPrevious }) {
             </div>
             <div className='grid grid-cols-5'> {/* Optional: add gap for spacing */}
                 {images.map((image, index) => (
-                    <img key={index} src={image} alt={`Photo ${index + 1}`} className='object-cover w-full h-full' />
+                    <img key={index} src={image} alt={`${index + 1}`} className='object-cover w-full h-full' />
                 ))}
             </div>
+            <ReviewsSection />
             <div className='px-6 py-6 border rounded-2xl flex flex-col gap-6 justify-center'>
                 <div className='flex items-center justify-between'>
                     <p className='text-white text-sm font-extralight'>Total Today</p>
@@ -158,7 +158,6 @@ export default function QuizCompleted({ onPrevious }) {
                 </p>
                 <p className='text-white font-light text-sm leading-loose tracking-wide bg-transparent text-justify'>Enjoy extra peace of mind. You can claim a full refund within 30 days if you’ve completed at least 80% of the sessions and still feel KESHAH isn’t right for you. </p>
             </div>
-            <ReviewsSection />
         </div>
     );
 }
